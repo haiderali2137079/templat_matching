@@ -1,0 +1,11 @@
+import cv2
+img=cv2.imread("vehical_imagaes.jpg")
+gray_img=cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+tam_img=cv2.imread("cycle.jpg",0)
+res=cv2.matchTemplate(gray_img,tam_img,cv2.TM_CCOEFF_NORMED)
+img=cv2.resize(img,(600,500))
+cv2.imshow("orig",img)
+res=cv2.resize(res,(600,500))
+cv2.imshow("result",res)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
